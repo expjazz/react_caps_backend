@@ -8,5 +8,6 @@ class FacebookController < ApplicationController
       newData << row.to_hash
     end
     render json: newData
+    
   end
 end

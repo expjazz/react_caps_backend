@@ -6,11 +6,14 @@
 # Read more: https://github.com/cyu/rack-cors
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allowed_headers = %i(get post put patch delete options head)
+  allow do
+    origins 'http://localhost:3001'
+    resource '*', headers: :any, methods: allowed_headers
+  end
+  
   allow do
     origins 'https://leadersofworlddashboard.netlify.app/'
-
-    resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    resource '*', headers: :any, methods: allowed_headers
   end
 end

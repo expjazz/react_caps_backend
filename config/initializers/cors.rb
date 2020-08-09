@@ -16,4 +16,9 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins 'https://leadersofworlddashboard.netlify.app/'
     resource '*', headers: :any, methods: allowed_headers
   end
+
+  allow do
+    origins '*'
+    resource '*', headers: :any, methods: allowed_headers
+  end
 end
